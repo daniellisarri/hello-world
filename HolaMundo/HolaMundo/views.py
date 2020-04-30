@@ -8,8 +8,10 @@ class Persona(object):
         self.apellido = apellido
 
 def saludo(request): # Primera vista
-
     p1 = Persona("Profesor Juan", "Díaz")
+
+    temas_del_curso = ["Plantillas", "Modelos", "Formularios", "Vistas", "Despliegue"]
+
     fecha_actual = datetime.datetime.now()
 
     doc_externo = open("C:/Users/danie/OneDrive/Escritorio/Proyecto COVID-19/HolaMundo/HolaMundo/templates/saludo.html") # Carga documento externo
@@ -18,7 +20,7 @@ def saludo(request): # Primera vista
 
     doc_externo.close() # Cierra documento externo
 
-    ctx = Context({"nombre":p1.nombre, "apellido":p1.apellido, "fecha":fecha_actual}) # Creación del contexto (Datos adicionales como diccionarios que puede usar el template)
+    ctx = Context({"nombre":p1.nombre, "apellido":p1.apellido, "fecha":fecha_actual, "temas":temas_del_curso}) # Creación del contexto (Datos adicionales como diccionarios que puede usar el template)
 
     documento = plt.render(ctx) # Renderizar el objeto Template pasandole el contexto
 
