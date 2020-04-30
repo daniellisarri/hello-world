@@ -6,9 +6,17 @@
     <title>Hola mundo</title>
 </head>
 <body>
-    <h1>
+    <h1 style="color: red;">
         Hola mundo
     </h1>
+
+    {% if nombre == 'Profesor Juan' %}
+        <p>El curso lo imparte el profesor titular</p>
+    {% else %}
+        <p>El curso lo imparte el profesor suplente</p>
+    {% endif %}
+
+
     <p>
         El nombre del profesor es {{nombre}}
         y el apellido es {{apellido}}
@@ -24,7 +32,7 @@
     <ul>
         {% if temas %}
             {% for elTema in temas %}
-                <li>{{elTema}}</li>
+                <li>{{elTema|first|lower}}</li>
             {% endfor %}
         {% else %}
             <p>No hay elementos que mostrar</p>

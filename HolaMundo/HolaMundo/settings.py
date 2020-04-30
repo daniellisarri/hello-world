@@ -54,7 +54,7 @@ ROOT_URLCONF = 'HolaMundo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["C:/Users/danie/OneDrive/Escritorio/Proyecto COVID-19/HolaMundo/HolaMundo/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
