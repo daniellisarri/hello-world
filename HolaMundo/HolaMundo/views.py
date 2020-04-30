@@ -2,6 +2,7 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 from django.template.loader import get_template
+from django.shortcuts import render
 
 class Persona(object):
     def __init__(self, nombre, apellido):
@@ -21,15 +22,17 @@ def saludo(request): # Primera vista
 
     # doc_externo.close() # Cierra documento externo
 
-    doc_externo = get_template('saludo.html')
+    ## doc_externo = get_template('saludo.html')
 
-    #ctx = Context({"nombre":p1.nombre, "apellido":p1.apellido, "fecha":fecha_actual, "temas":temas_del_curso}) # Creación del contexto (Datos adicionales como diccionarios que puede usar el template)
+    # ctx = Context({"nombre":p1.nombre, "apellido":p1.apellido, "fecha":fecha_actual, "temas":temas_del_curso}) # Creación del contexto (Datos adicionales como diccionarios que puede usar el template)
 
     # documento = plt.render(ctx) # Renderizar el objeto Template pasandole el contexto
 
-    documento = doc_externo.render({"nombre":p1.nombre, "apellido":p1.apellido, "fecha":fecha_actual, "temas":temas_del_curso})
+    ## documento = doc_externo.render({"nombre":p1.nombre, "apellido":p1.apellido, "fecha":fecha_actual, "temas":temas_del_curso})
 
-    return HttpResponse(documento)
+    ## return HttpResponse(documento)
+    
+    return render(request, "saludo.html", {"nombre":p1.nombre, "apellido":p1.apellido, "fecha":fecha_actual, "temas":temas_del_curso})
 
 
 
